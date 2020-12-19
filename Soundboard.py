@@ -9,6 +9,7 @@ class Soundboard():
     def __init__(self, button_num):
         self.button_num = int(button_num)
         self.file = None
+        self.button_label = f"Audio {self.button_num}"
 
     def setFile(self):
         self.file = filedialog.askopenfilename(
@@ -19,17 +20,22 @@ class Soundboard():
     def getFileDir(self):
         return self.file
 
+    def setButtonLabel(self, new_label):
+        self.button_label = new_label
+
     def playSound(self):
         if self.file == None:
-            return(f"Button {self.button_num} cannot be used because no file has been assigned.")
+            pass
         else:
             playsound(self.file)
-            return("Playing sound")
 
-    def Button(self, m):
-        play_button = tk.Button(master=m, text=f'Audio {self.button_num}', width=10,
+    def packButton(self, master):
+        frame = tk.Frame(master)
+        frame.pack()
+        play_button = tk.Button(frame, text=self.button_label, width=10,
                                 height=5, command=self.playSound)
-        select_file = tk.Button(master=m, text=f'Change File {self.button_num}',
-                                width=10, height=5, command=self.setFile)
+        play_button.pack(side=tk.LEFT)
+        changefile_button = tk.Button(
+            frame, text="^", width=3, height=3, command=self.setFile)
+        changefile_button.pack(side=tk.RIGHT)
         play_button.pack()
-        select_file.pack()
