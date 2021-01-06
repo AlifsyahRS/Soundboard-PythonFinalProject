@@ -9,10 +9,9 @@ class Soundboard():
     def __init__(self, button_num, master):
         self.button_num = int(button_num)
         self.file = None
-        self.button_label = f"Audio {self.button_num}"
         self.master = master
         self.frame = tk.Frame(master)
-        self.play_button = tk.Button(self.frame, text=self.button_label, width=10,
+        self.play_button = tk.Button(self.frame, text=f"Audio {self.button_num}", width=10,
                                      height=5, command=self.playSound)
         self.button_preferences = tk.Button(
             self.frame, text="*", width=3, height=3, command=self.buttonPreferences)
