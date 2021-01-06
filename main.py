@@ -18,6 +18,7 @@ def menubar(master):
 
 def main():
     master = tk.Tk()  # Creates the GUI for the program
+    master.title("Soundboard")
     menubar(master)
     Button_1 = Soundboard(1, master)
     Button_2 = Soundboard(2, master)
@@ -25,12 +26,12 @@ def main():
     Button_4 = Soundboard(4, master)
     Button_5 = Soundboard(5, master)
     Button_6 = Soundboard(6, master)
-    Button_1.packButton()
-    Button_2.packButton()
-    Button_3.packButton()
-    Button_4.packButton()
-    Button_5.packButton()
-    Button_6.packButton()
+    Button_1.packButtons()
+    Button_2.packButtons()
+    Button_3.packButtons()
+    Button_4.packButtons()
+    Button_5.packButtons()
+    Button_6.packButtons()
     master.mainloop()
 
 
